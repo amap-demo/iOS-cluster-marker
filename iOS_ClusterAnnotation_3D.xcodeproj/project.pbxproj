@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68D116BBB904FD6D572E78EA /* libPods-iOS_ClusterAnnotation_3D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239B12EBD293222D2A2819AB /* libPods-iOS_ClusterAnnotation_3D.a */; };
+		B6152B581DBA191700254FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B201DBA191700254FC8 /* AppDelegate.m */; };
+		B6152B591DBA191700254FC8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6152B211DBA191700254FC8 /* LaunchScreen.xib */; };
+		B6152B5A1DBA191700254FC8 /* AnnotationClusterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B271DBA191700254FC8 /* AnnotationClusterViewController.m */; };
+		B6152B5B1DBA191700254FC8 /* BaseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B291DBA191700254FC8 /* BaseMapViewController.m */; };
+		B6152B5C1DBA191700254FC8 /* PoiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B2B1DBA191700254FC8 /* PoiDetailViewController.m */; };
+		B6152B5D1DBA191700254FC8 /* ClusterAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B2E1DBA191700254FC8 /* ClusterAnnotation.m */; };
+		B6152B5E1DBA191700254FC8 /* CoordinateQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B301DBA191700254FC8 /* CoordinateQuadTree.m */; };
+		B6152B5F1DBA191700254FC8 /* QuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B321DBA191700254FC8 /* QuadTree.m */; };
+		B6152B601DBA191700254FC8 /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B351DBA191700254FC8 /* ClusterAnnotationView.m */; };
+		B6152B611DBA191700254FC8 /* ClusterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B371DBA191700254FC8 /* ClusterTableViewCell.m */; };
+		B6152B621DBA191700254FC8 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B391DBA191700254FC8 /* CustomCalloutView.m */; };
+		B6152B631DBA191700254FC8 /* greenPin.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B3D1DBA191700254FC8 /* greenPin.png */; };
+		B6152B641DBA191700254FC8 /* greenPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B3E1DBA191700254FC8 /* greenPin@2x.png */; };
+		B6152B651DBA191700254FC8 /* greenPin_lift.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B3F1DBA191700254FC8 /* greenPin_lift.png */; };
+		B6152B661DBA191700254FC8 /* greenPin_lift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B401DBA191700254FC8 /* greenPin_lift@2x.png */; };
+		B6152B671DBA191700254FC8 /* lineDashTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B411DBA191700254FC8 /* lineDashTexture.png */; };
+		B6152B681DBA191700254FC8 /* lineTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B421DBA191700254FC8 /* lineTexture.png */; };
+		B6152B691DBA191700254FC8 /* pin_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B431DBA191700254FC8 /* pin_shadow.png */; };
+		B6152B6A1DBA191700254FC8 /* pin_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B441DBA191700254FC8 /* pin_shadow@2x.png */; };
+		B6152B6B1DBA191700254FC8 /* purplePin.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B451DBA191700254FC8 /* purplePin.png */; };
+		B6152B6C1DBA191700254FC8 /* purplePin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B461DBA191700254FC8 /* purplePin@2x.png */; };
+		B6152B6D1DBA191700254FC8 /* purplePin_lift.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B471DBA191700254FC8 /* purplePin_lift.png */; };
+		B6152B6E1DBA191700254FC8 /* purplePin_lift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B481DBA191700254FC8 /* purplePin_lift@2x.png */; };
+		B6152B6F1DBA191700254FC8 /* redPin.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B491DBA191700254FC8 /* redPin.png */; };
+		B6152B701DBA191700254FC8 /* redPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B4A1DBA191700254FC8 /* redPin@2x.png */; };
+		B6152B711DBA191700254FC8 /* redPin_lift.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B4B1DBA191700254FC8 /* redPin_lift.png */; };
+		B6152B721DBA191700254FC8 /* redPin_lift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B4C1DBA191700254FC8 /* redPin_lift@2x.png */; };
+		B6152B731DBA191700254FC8 /* userlocation.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B4D1DBA191700254FC8 /* userlocation.png */; };
+		B6152B741DBA191700254FC8 /* userlocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6152B4E1DBA191700254FC8 /* userlocation@2x.png */; };
+		B6152B751DBA191700254FC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6152B4F1DBA191700254FC8 /* Images.xcassets */; };
+		B6152B771DBA191700254FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6152B521DBA191700254FC8 /* main.m */; };
+		B6152B781DBA191700254FC8 /* offlinePackage.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6152B541DBA191700254FC8 /* offlinePackage.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F3F33032C24C9934871C547 /* Pods-iOS_ClusterAnnotation_3D.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_ClusterAnnotation_3D.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D/Pods-iOS_ClusterAnnotation_3D.debug.xcconfig"; sourceTree = "<group>"; };
+		239B12EBD293222D2A2819AB /* libPods-iOS_ClusterAnnotation_3D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_ClusterAnnotation_3D.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3216D0F651FA50C7FC4109B8 /* Pods-iOS_ClusterAnnotation_3D.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_ClusterAnnotation_3D.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D/Pods-iOS_ClusterAnnotation_3D.release.xcconfig"; sourceTree = "<group>"; };
+		B6152B001DBA18E100254FC8 /* iOS_ClusterAnnotation_3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_ClusterAnnotation_3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6152B1F1DBA191700254FC8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B6152B201DBA191700254FC8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B6152B221DBA191700254FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B6152B261DBA191700254FC8 /* AnnotationClusterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationClusterViewController.h; sourceTree = "<group>"; };
+		B6152B271DBA191700254FC8 /* AnnotationClusterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationClusterViewController.m; sourceTree = "<group>"; };
+		B6152B281DBA191700254FC8 /* BaseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMapViewController.h; sourceTree = "<group>"; };
+		B6152B291DBA191700254FC8 /* BaseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMapViewController.m; sourceTree = "<group>"; };
+		B6152B2A1DBA191700254FC8 /* PoiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoiDetailViewController.h; sourceTree = "<group>"; };
+		B6152B2B1DBA191700254FC8 /* PoiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoiDetailViewController.m; sourceTree = "<group>"; };
+		B6152B2D1DBA191700254FC8 /* ClusterAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotation.h; sourceTree = "<group>"; };
+		B6152B2E1DBA191700254FC8 /* ClusterAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotation.m; sourceTree = "<group>"; };
+		B6152B2F1DBA191700254FC8 /* CoordinateQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateQuadTree.h; sourceTree = "<group>"; };
+		B6152B301DBA191700254FC8 /* CoordinateQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateQuadTree.m; sourceTree = "<group>"; };
+		B6152B311DBA191700254FC8 /* QuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadTree.h; sourceTree = "<group>"; };
+		B6152B321DBA191700254FC8 /* QuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTree.m; sourceTree = "<group>"; };
+		B6152B341DBA191700254FC8 /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
+		B6152B351DBA191700254FC8 /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
+		B6152B361DBA191700254FC8 /* ClusterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterTableViewCell.h; sourceTree = "<group>"; };
+		B6152B371DBA191700254FC8 /* ClusterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterTableViewCell.m; sourceTree = "<group>"; };
+		B6152B381DBA191700254FC8 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
+		B6152B391DBA191700254FC8 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
+		B6152B3B1DBA191700254FC8 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
+		B6152B3D1DBA191700254FC8 /* greenPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenPin.png; sourceTree = "<group>"; };
+		B6152B3E1DBA191700254FC8 /* greenPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenPin@2x.png"; sourceTree = "<group>"; };
+		B6152B3F1DBA191700254FC8 /* greenPin_lift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenPin_lift.png; sourceTree = "<group>"; };
+		B6152B401DBA191700254FC8 /* greenPin_lift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenPin_lift@2x.png"; sourceTree = "<group>"; };
+		B6152B411DBA191700254FC8 /* lineDashTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineDashTexture.png; sourceTree = "<group>"; };
+		B6152B421DBA191700254FC8 /* lineTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineTexture.png; sourceTree = "<group>"; };
+		B6152B431DBA191700254FC8 /* pin_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_shadow.png; sourceTree = "<group>"; };
+		B6152B441DBA191700254FC8 /* pin_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_shadow@2x.png"; sourceTree = "<group>"; };
+		B6152B451DBA191700254FC8 /* purplePin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purplePin.png; sourceTree = "<group>"; };
+		B6152B461DBA191700254FC8 /* purplePin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purplePin@2x.png"; sourceTree = "<group>"; };
+		B6152B471DBA191700254FC8 /* purplePin_lift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purplePin_lift.png; sourceTree = "<group>"; };
+		B6152B481DBA191700254FC8 /* purplePin_lift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purplePin_lift@2x.png"; sourceTree = "<group>"; };
+		B6152B491DBA191700254FC8 /* redPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redPin.png; sourceTree = "<group>"; };
+		B6152B4A1DBA191700254FC8 /* redPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redPin@2x.png"; sourceTree = "<group>"; };
+		B6152B4B1DBA191700254FC8 /* redPin_lift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redPin_lift.png; sourceTree = "<group>"; };
+		B6152B4C1DBA191700254FC8 /* redPin_lift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redPin_lift@2x.png"; sourceTree = "<group>"; };
+		B6152B4D1DBA191700254FC8 /* userlocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userlocation.png; sourceTree = "<group>"; };
+		B6152B4E1DBA191700254FC8 /* userlocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userlocation@2x.png"; sourceTree = "<group>"; };
+		B6152B4F1DBA191700254FC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B6152B501DBA191700254FC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6152B511DBA191700254FC8 /* ios_clusterAnnotation_3D.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_clusterAnnotation_3D.pch; sourceTree = "<group>"; };
+		B6152B521DBA191700254FC8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B6152B541DBA191700254FC8 /* offlinePackage.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = offlinePackage.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B6152AFD1DBA18E100254FC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68D116BBB904FD6D572E78EA /* libPods-iOS_ClusterAnnotation_3D.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04543F722D15878A23672A25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				239B12EBD293222D2A2819AB /* libPods-iOS_ClusterAnnotation_3D.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		796965A0B200BCD5A6DAB0EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F3F33032C24C9934871C547 /* Pods-iOS_ClusterAnnotation_3D.debug.xcconfig */,
+				3216D0F651FA50C7FC4109B8 /* Pods-iOS_ClusterAnnotation_3D.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B6152AF71DBA18E100254FC8 = {
+			isa = PBXGroup;
+			children = (
+				B6152B1E1DBA191700254FC8 /* iOS_ClusterAnnotation_3D */,
+				B6152B011DBA18E100254FC8 /* Products */,
+				796965A0B200BCD5A6DAB0EA /* Pods */,
+				04543F722D15878A23672A25 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B6152B011DBA18E100254FC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B001DBA18E100254FC8 /* iOS_ClusterAnnotation_3D.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6152B1E1DBA191700254FC8 /* iOS_ClusterAnnotation_3D */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B1F1DBA191700254FC8 /* AppDelegate.h */,
+				B6152B201DBA191700254FC8 /* AppDelegate.m */,
+				B6152B211DBA191700254FC8 /* LaunchScreen.xib */,
+				B6152B231DBA191700254FC8 /* ClusterAnnotation */,
+				B6152B3A1DBA191700254FC8 /* Configuration */,
+				B6152B3C1DBA191700254FC8 /* images */,
+				B6152B4F1DBA191700254FC8 /* Images.xcassets */,
+				B6152B501DBA191700254FC8 /* Info.plist */,
+				B6152B511DBA191700254FC8 /* ios_clusterAnnotation_3D.pch */,
+				B6152B521DBA191700254FC8 /* main.m */,
+				B6152B531DBA191700254FC8 /* offline */,
+			);
+			path = iOS_ClusterAnnotation_3D;
+			sourceTree = "<group>";
+		};
+		B6152B231DBA191700254FC8 /* ClusterAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B241DBA191700254FC8 /* Demo */,
+				B6152B2C1DBA191700254FC8 /* Model */,
+				B6152B331DBA191700254FC8 /* View */,
+			);
+			path = ClusterAnnotation;
+			sourceTree = "<group>";
+		};
+		B6152B241DBA191700254FC8 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B251DBA191700254FC8 /* Controller */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		B6152B251DBA191700254FC8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B261DBA191700254FC8 /* AnnotationClusterViewController.h */,
+				B6152B271DBA191700254FC8 /* AnnotationClusterViewController.m */,
+				B6152B281DBA191700254FC8 /* BaseMapViewController.h */,
+				B6152B291DBA191700254FC8 /* BaseMapViewController.m */,
+				B6152B2A1DBA191700254FC8 /* PoiDetailViewController.h */,
+				B6152B2B1DBA191700254FC8 /* PoiDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B6152B2C1DBA191700254FC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B2D1DBA191700254FC8 /* ClusterAnnotation.h */,
+				B6152B2E1DBA191700254FC8 /* ClusterAnnotation.m */,
+				B6152B2F1DBA191700254FC8 /* CoordinateQuadTree.h */,
+				B6152B301DBA191700254FC8 /* CoordinateQuadTree.m */,
+				B6152B311DBA191700254FC8 /* QuadTree.h */,
+				B6152B321DBA191700254FC8 /* QuadTree.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6152B331DBA191700254FC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B341DBA191700254FC8 /* ClusterAnnotationView.h */,
+				B6152B351DBA191700254FC8 /* ClusterAnnotationView.m */,
+				B6152B361DBA191700254FC8 /* ClusterTableViewCell.h */,
+				B6152B371DBA191700254FC8 /* ClusterTableViewCell.m */,
+				B6152B381DBA191700254FC8 /* CustomCalloutView.h */,
+				B6152B391DBA191700254FC8 /* CustomCalloutView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6152B3A1DBA191700254FC8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B3B1DBA191700254FC8 /* APIKey.h */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		B6152B3C1DBA191700254FC8 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B3D1DBA191700254FC8 /* greenPin.png */,
+				B6152B3E1DBA191700254FC8 /* greenPin@2x.png */,
+				B6152B3F1DBA191700254FC8 /* greenPin_lift.png */,
+				B6152B401DBA191700254FC8 /* greenPin_lift@2x.png */,
+				B6152B411DBA191700254FC8 /* lineDashTexture.png */,
+				B6152B421DBA191700254FC8 /* lineTexture.png */,
+				B6152B431DBA191700254FC8 /* pin_shadow.png */,
+				B6152B441DBA191700254FC8 /* pin_shadow@2x.png */,
+				B6152B451DBA191700254FC8 /* purplePin.png */,
+				B6152B461DBA191700254FC8 /* purplePin@2x.png */,
+				B6152B471DBA191700254FC8 /* purplePin_lift.png */,
+				B6152B481DBA191700254FC8 /* purplePin_lift@2x.png */,
+				B6152B491DBA191700254FC8 /* redPin.png */,
+				B6152B4A1DBA191700254FC8 /* redPin@2x.png */,
+				B6152B4B1DBA191700254FC8 /* redPin_lift.png */,
+				B6152B4C1DBA191700254FC8 /* redPin_lift@2x.png */,
+				B6152B4D1DBA191700254FC8 /* userlocation.png */,
+				B6152B4E1DBA191700254FC8 /* userlocation@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		B6152B531DBA191700254FC8 /* offline */ = {
+			isa = PBXGroup;
+			children = (
+				B6152B541DBA191700254FC8 /* offlinePackage.plist */,
+			);
+			path = offline;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6152AFF1DBA18E100254FC8 /* iOS_ClusterAnnotation_3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6152B171DBA18E100254FC8 /* Build configuration list for PBXNativeTarget "iOS_ClusterAnnotation_3D" */;
+			buildPhases = (
+				B80F1BF53578EF6D86EF1AD2 /* [CP] Check Pods Manifest.lock */,
+				B6152AFC1DBA18E100254FC8 /* Sources */,
+				B6152AFD1DBA18E100254FC8 /* Frameworks */,
+				B6152AFE1DBA18E100254FC8 /* Resources */,
+				0EE4BB72B4E5B9BA0B8B906E /* [CP] Embed Pods Frameworks */,
+				F64B95BA2B8D3C76CD1AFCDD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOS_ClusterAnnotation_3D;
+			productName = iOS_ClusterAnnotation_3D;
+			productReference = B6152B001DBA18E100254FC8 /* iOS_ClusterAnnotation_3D.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B6152AF81DBA18E100254FC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = yours;
+				TargetAttributes = {
+					B6152AFF1DBA18E100254FC8 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B6152AFB1DBA18E100254FC8 /* Build configuration list for PBXProject "iOS_ClusterAnnotation_3D" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B6152AF71DBA18E100254FC8;
+			productRefGroup = B6152B011DBA18E100254FC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6152AFF1DBA18E100254FC8 /* iOS_ClusterAnnotation_3D */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B6152AFE1DBA18E100254FC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6152B641DBA191700254FC8 /* greenPin@2x.png in Resources */,
+				B6152B751DBA191700254FC8 /* Images.xcassets in Resources */,
+				B6152B591DBA191700254FC8 /* LaunchScreen.xib in Resources */,
+				B6152B711DBA191700254FC8 /* redPin_lift.png in Resources */,
+				B6152B6D1DBA191700254FC8 /* purplePin_lift.png in Resources */,
+				B6152B781DBA191700254FC8 /* offlinePackage.plist in Resources */,
+				B6152B6F1DBA191700254FC8 /* redPin.png in Resources */,
+				B6152B731DBA191700254FC8 /* userlocation.png in Resources */,
+				B6152B6C1DBA191700254FC8 /* purplePin@2x.png in Resources */,
+				B6152B721DBA191700254FC8 /* redPin_lift@2x.png in Resources */,
+				B6152B701DBA191700254FC8 /* redPin@2x.png in Resources */,
+				B6152B651DBA191700254FC8 /* greenPin_lift.png in Resources */,
+				B6152B681DBA191700254FC8 /* lineTexture.png in Resources */,
+				B6152B6E1DBA191700254FC8 /* purplePin_lift@2x.png in Resources */,
+				B6152B661DBA191700254FC8 /* greenPin_lift@2x.png in Resources */,
+				B6152B741DBA191700254FC8 /* userlocation@2x.png in Resources */,
+				B6152B691DBA191700254FC8 /* pin_shadow.png in Resources */,
+				B6152B6A1DBA191700254FC8 /* pin_shadow@2x.png in Resources */,
+				B6152B6B1DBA191700254FC8 /* purplePin.png in Resources */,
+				B6152B631DBA191700254FC8 /* greenPin.png in Resources */,
+				B6152B671DBA191700254FC8 /* lineDashTexture.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EE4BB72B4E5B9BA0B8B906E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D/Pods-iOS_ClusterAnnotation_3D-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B80F1BF53578EF6D86EF1AD2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F64B95BA2B8D3C76CD1AFCDD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D/Pods-iOS_ClusterAnnotation_3D-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6152AFC1DBA18E100254FC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6152B5F1DBA191700254FC8 /* QuadTree.m in Sources */,
+				B6152B5D1DBA191700254FC8 /* ClusterAnnotation.m in Sources */,
+				B6152B601DBA191700254FC8 /* ClusterAnnotationView.m in Sources */,
+				B6152B5A1DBA191700254FC8 /* AnnotationClusterViewController.m in Sources */,
+				B6152B5B1DBA191700254FC8 /* BaseMapViewController.m in Sources */,
+				B6152B5C1DBA191700254FC8 /* PoiDetailViewController.m in Sources */,
+				B6152B621DBA191700254FC8 /* CustomCalloutView.m in Sources */,
+				B6152B5E1DBA191700254FC8 /* CoordinateQuadTree.m in Sources */,
+				B6152B581DBA191700254FC8 /* AppDelegate.m in Sources */,
+				B6152B771DBA191700254FC8 /* main.m in Sources */,
+				B6152B611DBA191700254FC8 /* ClusterTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B6152B211DBA191700254FC8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6152B221DBA191700254FC8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B6152B151DBA18E100254FC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B6152B161DBA18E100254FC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B6152B181DBA18E100254FC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F3F33032C24C9934871C547 /* Pods-iOS_ClusterAnnotation_3D.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iOS_ClusterAnnotation_3D/ios_clusterAnnotation_3D.pch;
+				INFOPLIST_FILE = iOS_ClusterAnnotation_3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Peking.1401210730.FengSheng.iOS-3D-ClusterAnnotation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B6152B191DBA18E100254FC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3216D0F651FA50C7FC4109B8 /* Pods-iOS_ClusterAnnotation_3D.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iOS_ClusterAnnotation_3D/ios_clusterAnnotation_3D.pch;
+				INFOPLIST_FILE = iOS_ClusterAnnotation_3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Peking.1401210730.FengSheng.iOS-3D-ClusterAnnotation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6152AFB1DBA18E100254FC8 /* Build configuration list for PBXProject "iOS_ClusterAnnotation_3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6152B151DBA18E100254FC8 /* Debug */,
+				B6152B161DBA18E100254FC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6152B171DBA18E100254FC8 /* Build configuration list for PBXNativeTarget "iOS_ClusterAnnotation_3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6152B181DBA18E100254FC8 /* Debug */,
+				B6152B191DBA18E100254FC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B6152AF81DBA18E100254FC8 /* Project object */;
+}
