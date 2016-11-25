@@ -9,6 +9,14 @@ MAMapKit 点聚合
 - 阅读[参考手册](http://api.amap.com/Public/reference/iOS%20API%20v2_3D/).
 - 工程基于iOS 3D地图SDK实现
 
+### 核心类/接口
+| 类    | 接口  | 说明   | 版本  |
+| -----|:-----:|:-----:|:-----:|
+| AnnotationClusterViewController | - (void)searchPoiWithKeyword:(NSString *)keyword; | 根据关键字搜索poi点 | n/a |
+| CoordinateQuadTree | - (void)buildTreeWithPOIs:(NSArray *)pois; | 根据返回poi建树 | n/a |
+| AnnotationClusterViewController | - (void)addAnnotationsToMapView:(MAMapView *)mapView; | 把annotation添加到地图 | n/a |
+| AnnotationClusterViewController | - (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated; | 响应地图区域变化回调，刷新annotations | n/a |
+
 ### 使用教程
 
 - 调用ClusterAnnotation文件夹下的代码能够实现poi点聚合，使用步骤如下：
