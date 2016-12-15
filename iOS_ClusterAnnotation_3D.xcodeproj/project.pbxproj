@@ -291,7 +291,8 @@
 				TargetAttributes = {
 					B6152AFF1DBA18E100254FC8 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = YMJ372W38W;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -520,6 +521,7 @@
 			baseConfigurationReference = 1F3F33032C24C9934871C547 /* Pods-iOS_ClusterAnnotation_3D.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YMJ372W38W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -531,6 +533,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Peking.1401210730.FengSheng.iOS-3D-ClusterAnnotation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d723e77c-6c92-4e6a-98d7-8717d0b88b87";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatform_development;
 			};
 			name = Debug;
 		};
@@ -539,6 +543,8 @@
 			baseConfigurationReference = 3216D0F651FA50C7FC4109B8 /* Pods-iOS_ClusterAnnotation_3D.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = YMJ372W38W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -550,6 +556,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Peking.1401210730.FengSheng.iOS-3D-ClusterAnnotation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a892512d-fe94-4702-b716-0b66880b936d";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatformInhouse;
 			};
 			name = Release;
 		};
