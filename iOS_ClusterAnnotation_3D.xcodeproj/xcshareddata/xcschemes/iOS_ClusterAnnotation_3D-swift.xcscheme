@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3AF7AD221E03C5D1001AE58A"
-               BuildableName = "iOS_ClusterAnnotation_3D.app"
-               BlueprintName = "iOS_ClusterAnnotation_3D"
+               BlueprintIdentifier = "3AF7AD8C1E04234E001AE58A"
+               BuildableName = "iOS_ClusterAnnotation_3D-swift.app"
+               BlueprintName = "iOS_ClusterAnnotation_3D-swift"
                ReferencedContainer = "container:iOS_ClusterAnnotation_3D.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AF7AD221E03C5D1001AE58A"
-            BuildableName = "iOS_ClusterAnnotation_3D.app"
-            BlueprintName = "iOS_ClusterAnnotation_3D"
+            BlueprintIdentifier = "3AF7AD8C1E04234E001AE58A"
+            BuildableName = "iOS_ClusterAnnotation_3D-swift.app"
+            BlueprintName = "iOS_ClusterAnnotation_3D-swift"
             ReferencedContainer = "container:iOS_ClusterAnnotation_3D.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AF7AD221E03C5D1001AE58A"
-            BuildableName = "iOS_ClusterAnnotation_3D.app"
-            BlueprintName = "iOS_ClusterAnnotation_3D"
+            BlueprintIdentifier = "3AF7AD8C1E04234E001AE58A"
+            BuildableName = "iOS_ClusterAnnotation_3D-swift.app"
+            BlueprintName = "iOS_ClusterAnnotation_3D-swift"
             ReferencedContainer = "container:iOS_ClusterAnnotation_3D.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AF7AD221E03C5D1001AE58A"
-            BuildableName = "iOS_ClusterAnnotation_3D.app"
-            BlueprintName = "iOS_ClusterAnnotation_3D"
+            BlueprintIdentifier = "3AF7AD8C1E04234E001AE58A"
+            BuildableName = "iOS_ClusterAnnotation_3D-swift.app"
+            BlueprintName = "iOS_ClusterAnnotation_3D-swift"
             ReferencedContainer = "container:iOS_ClusterAnnotation_3D.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

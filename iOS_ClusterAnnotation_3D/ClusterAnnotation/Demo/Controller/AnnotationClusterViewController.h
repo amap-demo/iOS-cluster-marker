@@ -6,8 +6,15 @@
 //  Copyright (c) 2014年 AutoNavi. All rights reserved.
 //
 
-#import "BaseMapViewController.h"
+#import <UIKit/UIKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
-@interface AnnotationClusterViewController : BaseMapViewController
+@interface AnnotationClusterViewController : UIViewController<MAMapViewDelegate, AMapSearchDelegate>
+
+@property (nonatomic, strong) MAMapView *mapView;
+@property (nonatomic, strong) AMapSearchAPI *search;
+@property (nonatomic, strong) UIButton *refreshButton;
 
 @end

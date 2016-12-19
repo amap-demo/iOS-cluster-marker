@@ -8,13 +8,16 @@
 
 #import "AnnotationClusterViewController.h"
 #import "PoiDetailViewController.h"
+
 #import "CoordinateQuadTree.h"
 #import "ClusterAnnotation.h"
+
 #import "ClusterAnnotationView.h"
 #import "ClusterTableViewCell.h"
 #import "CustomCalloutView.h"
 
-#define kCalloutViewMargin -12
+#define kCalloutViewMargin  -12
+#define Button_Height       70.0
 
 @interface AnnotationClusterViewController ()<CustomCalloutViewTapDelegate>
 
@@ -71,15 +74,19 @@
             return;
         }
         
+        /* 根据当前zoomLevel和zoomScale 进行annotation聚合. */
+        MAMapRect visibleRect = self.mapView.visibleMapRect;
+        double zoomScale = self.mapView.bounds.size.width / visibleRect.size.width;
+        double zoomLevel = self.mapView.zoomLevel;
+        
+        __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            /* 根据当前zoomLevel和zoomScale 进行annotation聚合. */
-            double zoomScale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
             
-            NSArray *annotations = [self.coordinateQuadTree clusteredAnnotationsWithinMapRect:mapView.visibleMapRect
-                                                                                withZoomScale:zoomScale
-                                                                                 andZoomLevel:mapView.zoomLevel];
+            NSArray *annotations = [weakSelf.coordinateQuadTree clusteredAnnotationsWithinMapRect:visibleRect
+                                                                                    withZoomScale:zoomScale
+                                                                                     andZoomLevel:zoomLevel];
             /* 更新annotation. */
-            [self updateMapViewAnnotationsWithAnnotations:annotations];
+            [weakSelf updateMapViewAnnotationsWithAnnotations:annotations];
         });
     }
 }
@@ -193,15 +200,23 @@
         [self.customCalloutView dismissCalloutView];
         [self.mapView removeAnnotations:self.mapView.annotations];
         
+        __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             /* 建立四叉树. */
-            [self.coordinateQuadTree buildTreeWithPOIs:response.pois];
-            self.shouldRegionChangeReCalculate = YES;
+            [weakSelf.coordinateQuadTree buildTreeWithPOIs:response.pois];
+            weakSelf.shouldRegionChangeReCalculate = YES;
             
-            [self addAnnotationsToMapView:self.mapView];
+            [weakSelf addAnnotationsToMapView:weakSelf.mapView];
         });
     }
 
+}
+
+#pragma mark - Refresh Button Action
+
+- (void)refreshAction:(UIButton *)button
+{
+    [self searchPoiWithKeyword:@"Apple"];
 }
 
 #pragma mark - Life Cycle
@@ -215,8 +230,6 @@
         self.selectedPoiArray = [[NSMutableArray alloc] init];
         
         self.customCalloutView = [[CustomCalloutView alloc] init];
-        
-        [self setTitle:@"Cluster Annotations"];
     }
     
     return self;
@@ -226,8 +239,15 @@
 {
     [super viewDidLoad];
     
+    [self setTitle:@"Cluster Annotations"];
+    
+    [self initMapView];
+    
+    [self initSearch];
+    
+    [self initRefreshButton];
+    
     _shouldRegionChangeReCalculate = NO;
-    [self.refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [self searchPoiWithKeyword:@"Apple"];
 }
@@ -237,9 +257,37 @@
     [self.coordinateQuadTree clean];
 }
 
-- (void)refreshAction:(UIButton *)button
+- (void)initMapView
 {
-    [self searchPoiWithKeyword:@"Apple"];
+    if (self.mapView == nil)
+    {
+        self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
+    }
+    
+    self.mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - Button_Height);
+    self.mapView.delegate = self;
+    
+    [self.view addSubview:self.mapView];
+    
+    self.mapView.visibleMapRect = MAMapRectMake(220880104, 101476980, 272496, 466656);
+}
+
+- (void)initSearch
+{
+    self.search = [[AMapSearchAPI alloc] init];
+    self.search.delegate = self;
+}
+
+- (void)initRefreshButton
+{
+    self.refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.refreshButton setFrame:CGRectMake(0, _mapView.frame.origin.y + _mapView.frame.size.height, _mapView.frame.size.width, Button_Height)];
+    [self.refreshButton setTitle:@"重新加载数据" forState:UIControlStateNormal];
+    [self.refreshButton setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+    
+    [self.refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.refreshButton];
 }
 
 @end

@@ -82,10 +82,12 @@ CGFloat ScaledValueForValue(CGFloat value)
     NSArray *subViews = self.subviews;
     if ([subViews count] > 1)
     {
-        UIView *subview = [subViews objectAtIndex:1];
-        if ([subview pointInside:[self convertPoint:point toView:subview] withEvent:event])
+        for (UIView *aSubView in subViews)
         {
-            return YES;
+            if ([aSubView pointInside:[self convertPoint:point toView:aSubView] withEvent:event])
+            {
+                return YES;
+            }
         }
     }
     if (point.x > 0 && point.x < self.frame.size.width && point.y > 0 && point.y < self.frame.size.height)

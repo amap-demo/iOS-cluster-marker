@@ -28,6 +28,7 @@ self.coordinateQuadTree = [[CoordinateQuadTree alloc] init];
  * 项目Demo通过关键字搜索获得poi数组数据，具体见工程。此处从获得poi数组开始说明。
  * 创建四叉树coordinateQuadTree来建立poi的四叉树索引。
  * 创建过程较为费时，建议另开线程。创建四叉树完成后，计算当前mapView下需要显示的annotation。
+`Objective-C`
 ```objc
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     /* 建立四叉树. */
@@ -41,7 +42,18 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 });
 ```
 
+`Swift`
+```
+DispatchQueue.global(qos: .default).async(execute: { [weak self] in
+                
+                self?.coordinateQuadTree.build(withPOIs: response.pois)
+                self?.shouldRegionChangeReCalculate = true
+                self?.addAnnotations(toMapView: (self?.mapView)!)
+            })
+```
+
 - 根据CoordinateQuadTree四叉树索引，计算当前zoomLevel下，mapView区域内的annotation。
+`Objective-C`
 ```objc
 - (void)addAnnotationsToMapView:(MAMapView *)mapView
 {
@@ -61,7 +73,36 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     [self updateMapViewAnnotationsWithAnnotations:annotations];
 }
 ```
+`Swift`
+```
+func addAnnotations(toMapView mapView: MAMapView) {
+        synchronized(lock: self) { [weak self] in
+            
+            guard (self?.coordinateQuadTree.root != nil) || self?.shouldRegionChangeReCalculate != false else {
+                NSLog("tree is not ready.")
+                return
+            }
+            
+            guard let aMapView = self?.mapView else {
+                return
+            }
+            
+            let visibleRect = aMapView.visibleMapRect
+            let zoomScale = Double(aMapView.bounds.size.width) / visibleRect.size.width
+            let zoomLevel = Double(aMapView.zoomLevel)
+            
+            DispatchQueue.global(qos: .default).async(execute: { [weak self] in
+                
+                let annotations = self?.coordinateQuadTree.clusteredAnnotations(within: visibleRect, withZoomScale: zoomScale, andZoomLevel: zoomLevel)
+                
+                self?.updateMapViewAnnotations(annotations: annotations as! Array<ClusterAnnotation>)
+            })
+        }
+    }
+```
+
 - 更新annotations。对比mapView里已有的annotations，吐故纳新。
+`Objective-C`
 ```objc
 /* 更新annotation. */
 - (void)updateMapViewAnnotationsWithAnnotations:(NSArray *)annotations
@@ -90,45 +131,39 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     });
 }
 ```
-- 实现MapView的delegate方法，根据anntation生成对应的View。annotationView的位置由其代表的poi平均位置决定，大小由poi数目决定。
-```objc
--(MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[ClusterAnnotation class]])
-    {
-        /* dequeue重用annotationView代码. */
-        /* ... */
+`Swift`
+```
+func updateMapViewAnnotations(annotations: Array<ClusterAnnotation>) {
         
-        /* 设置annotationView的属性. */
-        annotationView.annotation = annotation;
-        annotationView.count = [(ClusterAnnotation *)annotation count];
+        /* 用户滑动时，保留仍然可用的标注，去除屏幕外标注，添加新增区域的标注 */
+        let before = NSMutableSet(array: mapView.annotations)
+        before.remove(mapView.userLocation)
+        let after: Set<NSObject> = NSSet(array: annotations) as Set<NSObject>
         
-        /* 设置annotationView的callout属性和calloutView代码. */
-        /* ... */
-        return annotationView;
+        /* 保留仍然位于屏幕内的annotation. */
+        var toKeep: Set<NSObject> = NSMutableSet(set: before) as Set<NSObject>
+        toKeep = toKeep.intersection(after)
+        
+        /* 需要添加的annotation. */
+        let toAdd = NSMutableSet(set: after)
+        toAdd.minus(toKeep)
+        
+        /* 删除位于屏幕外的annotation. */
+        let toRemove = NSMutableSet(set: before)
+        toRemove.minus(after)
+        
+        DispatchQueue.main.async(execute: { [weak self] () -> Void in
+            self?.mapView.addAnnotations(toAdd.allObjects)
+            self?.mapView.removeAnnotations(toRemove.allObjects)
+        })
     }
-    return nil;
-}
 ```
-
-- 在mapView显示区域改变时，需要重算并更新annotations。
-```obj
-- (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
-    /* mapView区域变化时重算annotation. */
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self addAnnotationsToMapView:self.mapView];
-    });
-}
-```
-
 
 ### 架构
 
 ##### Controllers
 - `<UIViewController>`
-  * `BaseMapViewController` 地图基类
-    - `AnnotationClusterViewController` poi点聚合
+  * `AnnotationClusterViewController` poi点聚合
   * `PoiDetailViewController` 显示poi详细信息列表
 
 ##### View

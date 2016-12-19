@@ -1,9 +1,9 @@
 //
 //  main.m
-//  iOS_3D_ClusterAnnotation
+//  iOS_ClusterAnnotation_3D
 //
-//  Created by PC on 15/7/3.
-//  Copyright (c) 2015年 FENGSHENG. All rights reserved.
+//  Created by liubo on 2016/12/16.
+//  Copyright © 2016年 AutoNavi. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
