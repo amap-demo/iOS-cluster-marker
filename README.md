@@ -28,6 +28,7 @@ self.coordinateQuadTree = [[CoordinateQuadTree alloc] init];
  * 项目Demo通过关键字搜索获得poi数组数据，具体见工程。此处从获得poi数组开始说明。
  * 创建四叉树coordinateQuadTree来建立poi的四叉树索引。
  * 创建过程较为费时，建议另开线程。创建四叉树完成后，计算当前mapView下需要显示的annotation。
+
 `Objective-C`
 ```objc
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -53,6 +54,7 @@ DispatchQueue.global(qos: .default).async(execute: { [weak self] in
 ```
 
 - 根据CoordinateQuadTree四叉树索引，计算当前zoomLevel下，mapView区域内的annotation。
+
 `Objective-C`
 ```objc
 - (void)addAnnotationsToMapView:(MAMapView *)mapView
@@ -102,6 +104,7 @@ func addAnnotations(toMapView mapView: MAMapView) {
 ```
 
 - 更新annotations。对比mapView里已有的annotations，吐故纳新。
+
 `Objective-C`
 ```objc
 /* 更新annotation. */
