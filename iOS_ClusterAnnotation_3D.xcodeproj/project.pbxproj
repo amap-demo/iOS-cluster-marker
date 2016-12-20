@@ -31,8 +31,19 @@
 		3AF7ADA61E0423C1001AE58A /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF7AD571E03C6E7001AE58A /* ClusterAnnotationView.m */; };
 		3AF7ADA71E0423C1001AE58A /* ClusterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF7AD591E03C6E7001AE58A /* ClusterTableViewCell.m */; };
 		3AF7ADA81E0423C1001AE58A /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF7AD5B1E03C6E7001AE58A /* CustomCalloutView.m */; };
+		6A6C53B81E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C53B71E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.m */; };
 		E5DCD0EBD5009218FD11BBDE /* libPods-iOS_ClusterAnnotation_3D-swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7FB35C2D5137EAC266EE59 /* libPods-iOS_ClusterAnnotation_3D-swift.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6A6C53BA1E08CF1800739D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AF7AD1B1E03C5D1001AE58A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AF7AD221E03C5D1001AE58A;
+			remoteInfo = iOS_ClusterAnnotation_3D;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3813129DDA80BB5079C86E73 /* Pods-iOS_ClusterAnnotation_3D.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_ClusterAnnotation_3D.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D/Pods-iOS_ClusterAnnotation_3D.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +80,9 @@
 		3AF7ADA01E042392001AE58A /* Swift-Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Bridge-Header.h"; sourceTree = "<group>"; };
 		4B042D552FAD6B5D99ADD97E /* Pods-iOS_ClusterAnnotation_3D-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_ClusterAnnotation_3D-swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D-swift/Pods-iOS_ClusterAnnotation_3D-swift.release.xcconfig"; sourceTree = "<group>"; };
 		544E9E2A7BEEF202588B7814 /* libPods-iOS_ClusterAnnotation_3D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_ClusterAnnotation_3D.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6C53B51E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_ClusterAnnotation_3DUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6C53B71E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_ClusterAnnotation_3DUITests.m; sourceTree = "<group>"; };
+		6A6C53B91E08CF1800739D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7912C4F4E8063C21C463E2C0 /* Pods-iOS_ClusterAnnotation_3D.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_ClusterAnnotation_3D.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D/Pods-iOS_ClusterAnnotation_3D.release.xcconfig"; sourceTree = "<group>"; };
 		A5E2D4BA8FA2CC10EEFBFCB7 /* Pods-iOS_ClusterAnnotation_3D-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_ClusterAnnotation_3D-swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_ClusterAnnotation_3D-swift/Pods-iOS_ClusterAnnotation_3D-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		CD7FB35C2D5137EAC266EE59 /* libPods-iOS_ClusterAnnotation_3D-swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_ClusterAnnotation_3D-swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +106,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A6C53B21E08CF1800739D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,6 +121,7 @@
 			children = (
 				3AF7AD251E03C5D1001AE58A /* iOS_ClusterAnnotation_3D */,
 				3AF7AD8E1E04234E001AE58A /* iOS_ClusterAnnotation_3D-swift */,
+				6A6C53B61E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests */,
 				3AF7AD241E03C5D1001AE58A /* Products */,
 				6A499FB89E7E71D456730A17 /* Pods */,
 				DF7E5EC566538DB8C00BEFEF /* Frameworks */,
@@ -111,6 +133,7 @@
 			children = (
 				3AF7AD231E03C5D1001AE58A /* iOS_ClusterAnnotation_3D.app */,
 				3AF7AD8D1E04234E001AE58A /* iOS_ClusterAnnotation_3D-swift.app */,
+				6A6C53B51E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,6 +248,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6A6C53B61E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6A6C53B71E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.m */,
+				6A6C53B91E08CF1800739D47 /* Info.plist */,
+			);
+			path = iOS_ClusterAnnotation_3DUITests;
+			sourceTree = "<group>";
+		};
 		DF7E5EC566538DB8C00BEFEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +310,24 @@
 			productReference = 3AF7AD8D1E04234E001AE58A /* iOS_ClusterAnnotation_3D-swift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6A6C53B41E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A6C53BE1E08CF1800739D47 /* Build configuration list for PBXNativeTarget "iOS_ClusterAnnotation_3DUITests" */;
+			buildPhases = (
+				6A6C53B11E08CF1800739D47 /* Sources */,
+				6A6C53B21E08CF1800739D47 /* Frameworks */,
+				6A6C53B31E08CF1800739D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A6C53BB1E08CF1800739D47 /* PBXTargetDependency */,
+			);
+			name = iOS_ClusterAnnotation_3DUITests;
+			productName = iOS_ClusterAnnotation_3DUITests;
+			productReference = 6A6C53B51E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -298,6 +348,12 @@
 						DevelopmentTeam = YMJ372W38W;
 						ProvisioningStyle = Manual;
 					};
+					6A6C53B41E08CF1800739D47 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = YMJ372W38W;
+						ProvisioningStyle = Manual;
+						TestTargetID = 3AF7AD221E03C5D1001AE58A;
+					};
 				};
 			};
 			buildConfigurationList = 3AF7AD1E1E03C5D1001AE58A /* Build configuration list for PBXProject "iOS_ClusterAnnotation_3D" */;
@@ -315,6 +371,7 @@
 			targets = (
 				3AF7AD221E03C5D1001AE58A /* iOS_ClusterAnnotation_3D */,
 				3AF7AD8C1E04234E001AE58A /* iOS_ClusterAnnotation_3D-swift */,
+				6A6C53B41E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -335,6 +392,13 @@
 			files = (
 				3AF7AD9A1E04234E001AE58A /* LaunchScreen.storyboard in Resources */,
 				3AF7AD971E04234E001AE58A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A6C53B31E08CF1800739D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +531,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A6C53B11E08CF1800739D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A6C53B81E08CF1800739D47 /* iOS_ClusterAnnotation_3DUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6A6C53BB1E08CF1800739D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AF7AD221E03C5D1001AE58A /* iOS_ClusterAnnotation_3D */;
+			targetProxy = 6A6C53BA1E08CF1800739D47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3AF7AD341E03C5D1001AE58A /* LaunchScreen.storyboard */ = {
@@ -650,6 +730,34 @@
 			};
 			name = Release;
 		};
+		6A6C53BC1E08CF1800739D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				INFOPLIST_FILE = iOS_ClusterAnnotation_3DUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.iOS-ClusterAnnotation-3DUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d723e77c-6c92-4e6a-98d7-8717d0b88b87";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatform_development;
+				TEST_TARGET_NAME = iOS_ClusterAnnotation_3D;
+			};
+			name = Debug;
+		};
+		6A6C53BD1E08CF1800739D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				INFOPLIST_FILE = iOS_ClusterAnnotation_3DUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.iOS-ClusterAnnotation-3DUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d723e77c-6c92-4e6a-98d7-8717d0b88b87";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatform_development;
+				TEST_TARGET_NAME = iOS_ClusterAnnotation_3D;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -679,6 +787,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6A6C53BE1E08CF1800739D47 /* Build configuration list for PBXNativeTarget "iOS_ClusterAnnotation_3DUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A6C53BC1E08CF1800739D47 /* Debug */,
+				6A6C53BD1E08CF1800739D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

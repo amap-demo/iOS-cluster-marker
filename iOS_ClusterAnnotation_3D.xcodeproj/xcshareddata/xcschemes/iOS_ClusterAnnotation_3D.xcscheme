@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A6C53B41E08CF1800739D47"
+               BuildableName = "iOS_ClusterAnnotation_3DUITests.xctest"
+               BlueprintName = "iOS_ClusterAnnotation_3DUITests"
+               ReferencedContainer = "container:iOS_ClusterAnnotation_3D.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
