@@ -21,9 +21,16 @@ MAMapKit 点聚合
 
 - 调用ClusterAnnotation文件夹下的代码能够实现poi点聚合，使用步骤如下：
 - 初始化coordinateQuadTree。
-```objc
+
+`Objective-C`
+```
 self.coordinateQuadTree = [[CoordinateQuadTree alloc] init];
 ```
+`Swift`
+```
+var coordinateQuadTree = CoordinateQuadTree()
+```
+
 - 获得poi数组pois后，创建coordinateQuadTree。
  * 项目Demo通过关键字搜索获得poi数组数据，具体见工程。此处从获得poi数组开始说明。
  * 创建四叉树coordinateQuadTree来建立poi的四叉树索引。
