@@ -198,7 +198,10 @@
         // 清理
         [self.selectedPoiArray removeAllObjects];
         [self.customCalloutView dismissCalloutView];
-        [self.mapView removeAnnotations:self.mapView.annotations];
+        
+        NSMutableArray *annosToRemove = [NSMutableArray arrayWithArray:self.mapView.annotations];
+        [annosToRemove removeObject:self.mapView.userLocation];
+        [self.mapView removeAnnotations:annosToRemove];
         
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

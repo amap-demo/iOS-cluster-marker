@@ -795,6 +795,7 @@
 				6A6C53BD1E08CF1800739D47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
