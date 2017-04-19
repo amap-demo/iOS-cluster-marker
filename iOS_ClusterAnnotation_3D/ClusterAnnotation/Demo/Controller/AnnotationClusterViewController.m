@@ -265,10 +265,11 @@
     if (self.mapView == nil)
     {
         self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
+        self.mapView.allowsAnnotationViewSorting = NO;
+        self.mapView.delegate = self;
     }
     
     self.mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - Button_Height);
-    self.mapView.delegate = self;
     
     [self.view addSubview:self.mapView];
     

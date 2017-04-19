@@ -42,13 +42,9 @@
     [element swipeRight];
     [element swipeLeft];
     [element twoFingerTap];
-    [element doubleTap];
-    [element twoFingerTap];
-    
     
     // 重新加载
     XCUIElement *button = app.buttons[@"\u91cd\u65b0\u52a0\u8f7d\u6570\u636e"];
-    [button tap];
     [button tap];
     
     [element doubleTap];
