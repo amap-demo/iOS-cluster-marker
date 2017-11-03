@@ -95,8 +95,30 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
 
 #pragma mark Utility
 
+- (NSArray *)getAnnotationsWithoutClusteredInMapRect:(MAMapRect)rect
+{
+    __block NSMutableArray *clusteredAnnotations = [[NSMutableArray alloc] init];
+    QuadTreeGatherDataInRange(self.root, BoundingBoxForMapRect(rect), ^(QuadTreeNodeData data) {
+        AMapPOI *aPoi = (__bridge AMapPOI *)data.data;
+        
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(aPoi.location.latitude, aPoi.location.longitude);
+        ClusterAnnotation *annotation = [[ClusterAnnotation alloc] initWithCoordinate:coordinate count:1];
+        annotation.pois = @[aPoi].mutableCopy;
+        
+        [clusteredAnnotations addObject:annotation];
+    });
+    
+    return clusteredAnnotations;
+}
+
 - (NSArray *)clusteredAnnotationsWithinMapRect:(MAMapRect)rect withZoomScale:(double)zoomScale andZoomLevel:(double)zoomLevel
 {
+    //满足特定zoomLevel时不产生聚合效果(这里取地图的最大zoomLevel，效果为地图达到最大zoomLevel时，annotation全部展开，无聚合效果)
+    if (zoomLevel >= 19.0)
+    {
+        return [self getAnnotationsWithoutClusteredInMapRect:rect];
+    }
+    
     double CellSize = CellSizeForZoomLevel(zoomLevel);
     double scaleFactor = zoomScale / CellSize;
     
