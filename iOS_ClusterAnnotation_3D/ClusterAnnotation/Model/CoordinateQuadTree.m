@@ -175,6 +175,58 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
     return [NSArray arrayWithArray:clusteredAnnotations];
 }
 
+#pragma mark - cluster by distance
+
+#define kCoordianteMinDistance  5000.f
+
+///这个方法按照annotation.coordinate之间的距离进行聚合
+- (NSArray<ClusterAnnotation *> *)distance_clusteredAnnotationsWithinMapRect:(MAMapRect)rect withZoomScale:(double)zoomScale andZoomLevel:(double)zoomLevel {
+    __block NSMutableArray<AMapPOI *> *allAnnotations = [[NSMutableArray alloc] init];
+    QuadTreeGatherDataInRange(self.root, BoundingBoxForMapRect(rect), ^(QuadTreeNodeData data) {
+        [allAnnotations addObject:(__bridge AMapPOI *)data.data];
+    });
+    
+    NSMutableArray<ClusterAnnotation *> *clusteredAnnotations = [[NSMutableArray alloc] init];
+    for (AMapPOI *aAnnotation in allAnnotations) {
+        CLLocationCoordinate2D resultCoor = CLLocationCoordinate2DMake(aAnnotation.location.latitude, aAnnotation.location.longitude);
+        
+        ClusterAnnotation *cluster = [self getClusterForAnnotation:aAnnotation inClusteredAnnotations:clusteredAnnotations];
+        if (cluster == nil) {
+            ClusterAnnotation *aResult = [[ClusterAnnotation alloc] initWithCoordinate:resultCoor count:1];
+            aResult.pois = @[aAnnotation].mutableCopy;
+            
+            [clusteredAnnotations addObject:aResult];
+        } else {
+            double totalX = cluster.coordinate.latitude * cluster.count + resultCoor.latitude;
+            double totalY = cluster.coordinate.longitude * cluster.count + resultCoor.longitude;
+            NSInteger totalCount = cluster.count + 1;
+            
+            cluster.count = totalCount;
+            cluster.coordinate = CLLocationCoordinate2DMake(totalX / totalCount, totalY / totalCount);
+            [cluster.pois addObject:aAnnotation];
+        }
+    }
+    
+    return clusteredAnnotations;
+}
+
+- (ClusterAnnotation *)getClusterForAnnotation:(AMapPOI *)annotation inClusteredAnnotations:(NSArray<ClusterAnnotation *> *)clusteredAnnotations {
+    if ([clusteredAnnotations count] <= 0 || annotation == nil) {
+        return nil;
+    }
+    
+    CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.location.latitude longitude:annotation.location.longitude];
+    for (ClusterAnnotation *aCluster in clusteredAnnotations) {
+        CLLocation *clusterLocation = [[CLLocation alloc] initWithLatitude:aCluster.coordinate.latitude longitude:aCluster.coordinate.longitude];
+        double distance = [clusterLocation distanceFromLocation:annotationLocation];
+        if (distance < kCoordianteMinDistance) {
+            return aCluster;
+        }
+    }
+    
+    return nil;
+}
+
 #pragma mark Initilization
 
 - (void)buildTreeWithPOIs:(NSArray *)pois
