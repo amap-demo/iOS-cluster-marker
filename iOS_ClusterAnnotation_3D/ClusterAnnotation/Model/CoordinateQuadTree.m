@@ -177,10 +177,8 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
 
 #pragma mark - cluster by distance
 
-#define kCoordianteMinDistance  5000.f
-
-///这个方法按照annotation.coordinate之间的距离进行聚合
-- (NSArray<ClusterAnnotation *> *)distance_clusteredAnnotationsWithinMapRect:(MAMapRect)rect withZoomScale:(double)zoomScale andZoomLevel:(double)zoomLevel {
+///按照annotation.coordinate之间的距离进行聚合
+- (NSArray<ClusterAnnotation *> *)clusteredAnnotationsWithinMapRect:(MAMapRect)rect withDistance:(double)distance {
     __block NSMutableArray<AMapPOI *> *allAnnotations = [[NSMutableArray alloc] init];
     QuadTreeGatherDataInRange(self.root, BoundingBoxForMapRect(rect), ^(QuadTreeNodeData data) {
         [allAnnotations addObject:(__bridge AMapPOI *)data.data];
@@ -190,7 +188,7 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
     for (AMapPOI *aAnnotation in allAnnotations) {
         CLLocationCoordinate2D resultCoor = CLLocationCoordinate2DMake(aAnnotation.location.latitude, aAnnotation.location.longitude);
         
-        ClusterAnnotation *cluster = [self getClusterForAnnotation:aAnnotation inClusteredAnnotations:clusteredAnnotations];
+        ClusterAnnotation *cluster = [self getClusterForAnnotation:aAnnotation inClusteredAnnotations:clusteredAnnotations withDistance:distance];
         if (cluster == nil) {
             ClusterAnnotation *aResult = [[ClusterAnnotation alloc] initWithCoordinate:resultCoor count:1];
             aResult.pois = @[aAnnotation].mutableCopy;
@@ -210,7 +208,7 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
     return clusteredAnnotations;
 }
 
-- (ClusterAnnotation *)getClusterForAnnotation:(AMapPOI *)annotation inClusteredAnnotations:(NSArray<ClusterAnnotation *> *)clusteredAnnotations {
+- (ClusterAnnotation *)getClusterForAnnotation:(AMapPOI *)annotation inClusteredAnnotations:(NSArray<ClusterAnnotation *> *)clusteredAnnotations withDistance:(double)distance {
     if ([clusteredAnnotations count] <= 0 || annotation == nil) {
         return nil;
     }
@@ -218,8 +216,8 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
     CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.location.latitude longitude:annotation.location.longitude];
     for (ClusterAnnotation *aCluster in clusteredAnnotations) {
         CLLocation *clusterLocation = [[CLLocation alloc] initWithLatitude:aCluster.coordinate.latitude longitude:aCluster.coordinate.longitude];
-        double distance = [clusterLocation distanceFromLocation:annotationLocation];
-        if (distance < kCoordianteMinDistance) {
+        double dis = [clusterLocation distanceFromLocation:annotationLocation];
+        if (dis < distance) {
             return aCluster;
         }
     }
