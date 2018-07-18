@@ -30,6 +30,7 @@
 @property (nonatomic, assign) BOOL shouldRegionChangeReCalculate;
 
 @property (nonatomic, strong) AMapPOIKeywordsSearchRequest *currentRequest;
+@property (nonatomic, strong) dispatch_queue_t queue;
 
 @end
 
@@ -84,13 +85,15 @@
         //double distance = 50.f * [self.mapView metersPerPointForZoomLevel:self.mapView.zoomLevel];
         
         __weak typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_barrier_async(self.queue, ^{
             
             NSArray *annotations = [weakSelf.coordinateQuadTree clusteredAnnotationsWithinMapRect:visibleRect
                                                                                     withZoomScale:zoomScale
                                                                                      andZoomLevel:zoomLevel];
-            /* 更新annotation. */
-            [weakSelf updateMapViewAnnotationsWithAnnotations:annotations];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                /* 更新annotation. */
+                [weakSelf updateMapViewAnnotationsWithAnnotations:annotations];
+            });
         });
     }
 }
@@ -208,12 +211,14 @@
         [self.mapView removeAnnotations:annosToRemove];
         
         __weak typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(self.queue, ^{
             /* 建立四叉树. */
             [weakSelf.coordinateQuadTree buildTreeWithPOIs:response.pois];
             weakSelf.shouldRegionChangeReCalculate = YES;
             
-            [weakSelf addAnnotationsToMapView:weakSelf.mapView];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf addAnnotationsToMapView:weakSelf.mapView];
+            });
         });
     }
 
@@ -237,6 +242,8 @@
         self.selectedPoiArray = [[NSMutableArray alloc] init];
         
         self.customCalloutView = [[CustomCalloutView alloc] init];
+        
+        self.queue = dispatch_queue_create("quadQueue", DISPATCH_QUEUE_SERIAL);
     }
     
     return self;
