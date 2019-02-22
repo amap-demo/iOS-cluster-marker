@@ -8,6 +8,9 @@ MAMapKit 点聚合
 - [高德官网申请Key](http://lbs.amap.com/dev/#/).
 - 阅读[开发指南](http://lbs.amap.com/api/ios-sdk/summary/).
 - 工程基于iOS 3D地图SDK实现
+- 关键词：点聚合 => h5入口:https://lbs.amap.com/api/javascript-api/guide/overlays/massmarker/
+- 关键词：ios聚合 ios入口:https://lbs.amap.com/dev/demo/cluster-marker#iOS
+
 
 ### 核心类/接口
 | 类    | 接口  | 说明   | 版本  |
