@@ -1,4 +1,4 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
 
 target 'iOS_ClusterAnnotation_3D' do
     pod 'AMap3DMap'
