@@ -169,14 +169,16 @@ class AnnotationClusterViewController: UIViewController, MAMapViewDelegate, AMap
                 
                 self?.coordinateQuadTree.build(withPOIs: response.pois)
                 self?.shouldRegionChangeReCalculate = true
-                self?.addAnnotations(toMapView: (self?.mapView)!)
+                DispatchQueue.main.async(execute: {
+                    self?.addAnnotations(toMapView: (self?.mapView)!)
+                })
             })
         }
     }
     
     //MARK: - Button Action
     
-    func refreshButtonAvtion() {
+    @objc func refreshButtonAction() {
         searchPoi(keywords: "Apple")
     }
     
@@ -191,7 +193,7 @@ class AnnotationClusterViewController: UIViewController, MAMapViewDelegate, AMap
         
         initRefreshButton()
         
-        refreshButtonAvtion()
+        refreshButtonAction()
     }
     
     deinit {
@@ -219,7 +221,7 @@ class AnnotationClusterViewController: UIViewController, MAMapViewDelegate, AMap
         refreshButton.setTitle("重新加载数据", for: .normal)
         refreshButton.setTitleColor(UIColor.purple, for: .normal)
         
-        refreshButton.addTarget(self, action: #selector(self.refreshButtonAvtion), for: .touchUpInside)
+        refreshButton.addTarget(self, action: #selector(self.refreshButtonAction), for: .touchUpInside)
         
         view.addSubview(refreshButton)
     }
